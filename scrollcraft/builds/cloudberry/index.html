@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cloudberry · сайты для баров, где гости бронируют стол и приходят</title>
+<meta name="description" content="Cloudberry делает сайты для баров, пабов и ивент-площадок: афиша недели, бронь стола на схеме зала и подтверждение брони в Telegram.">
+<meta name="theme-color" content="#07080D">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307080D'/><g fill='%23FF8A2A'><circle cx='12' cy='13' r='4'/><circle cx='20' cy='13' r='4'/><circle cx='16' cy='20' r='4'/><circle cx='9' cy='20' r='3'/><circle cx='23' cy='20' r='3'/></g></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:ital,wght@0,600;0,700;1,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="assets/hero-plate.webp">
+<link rel="stylesheet" href="scrollcraft.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<canvas class="ambient" aria-hidden="true"></canvas>
+<div class="sc-grain" aria-hidden="true"></div>
+
+<a class="skip" href="#zayavka">Перейти к заявке</a>
+
+<header class="bar">
+  <a class="bar__mark" href="#top" aria-label="Cloudberry, в начало">
+    <svg class="berry" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="15" cy="14" r="5.2"/><circle cx="25" cy="14" r="5.2"/>
+      <circle cx="10" cy="23.5" r="4.6"/><circle cx="20" cy="23" r="5.4"/><circle cx="30" cy="23.5" r="4.6"/>
+      <circle cx="15" cy="31.5" r="4.2"/><circle cx="25" cy="31.5" r="4.2"/>
+    </svg>
+    <span>Cloudberry</span>
+  </a>
+  <a class="btn btn--bar" href="#zayavka">Хочу такой сайт</a>
+</header>
+
+<!-- The signature: a floor plan the story books table by table. -->
+<a class="hud" href="#demo" data-state="empty" aria-label="Схема зала. Перейти к живому демо бронирования">
+  <span class="hud__head">
+    <span class="hud__event">Пт · Джазовый вечер</span>
+    <span class="hud__status" aria-live="off">Зал пуст</span>
+  </span>
+  <span class="hud__plan" data-plan="hud"></span>
+</a>
+
+<main id="top">
+
+  <!-- 1 · ОБЗВОН: pin + layered planes -->
+  <section class="hero" id="hero" data-sc-act="pin" data-sc-span="2" data-sc-drift="#07080D">
+    <div data-sc-stage class="hero__stage">
+      <img class="hero__layer hero__plate" src="assets/hero-plate.webp" width="2400" height="1333" alt="" fetchpriority="high">
+      <video class="hero__layer hero__plate hero__loop" muted loop playsinline preload="none" aria-hidden="true"
+             data-src="assets/hero-loop.mp4" data-src-mobile="assets/hero-loop-m.mp4"></video>
+
+      <p class="hero__title" aria-hidden="true"><span>Опять</span> <span>не придут.</span></p>
+
+      <img class="hero__layer hero__man" src="assets/hero-man.webp" width="2400" height="1333" alt="Администратор бара с телефоном у уха, в отчаянии держится за голову">
+      <img class="hero__layer hero__desk" src="assets/hero-desk.webp" width="2400" height="1333" alt="">
+      <canvas class="hero__dust" aria-hidden="true"></canvas>
+      <div class="hero__floor" aria-hidden="true"></div>
+
+      <div class="calllog" data-sc-cue="0 0.86 0 0.12">
+        <p class="calllog__head"><span class="dot" aria-hidden="true"></span>Обзвон броней · пятница, 19:40</p>
+        <ol class="calllog__list">
+          <li><span class="t">19:02</span><span class="w">Стол 4 · Андрей</span><span class="r">не берёт трубку</span></li>
+          <li><span class="t">19:06</span><span class="w">Стол 7 · Марина</span><span class="r">«давайте в другой раз»</span></li>
+          <li><span class="t">19:11</span><span class="w">Стол 2 · Олег</span><span class="r">отмена</span></li>
+          <li><span class="t">19:15</span><span class="w">Стол 9 · Катя</span><span class="r">«мы уже не успеваем»</span></li>
+          <li><span class="t">19:21</span><span class="w">Стол 5 · Денис</span><span class="r">сброс</span></li>
+        </ol>
+      </div>
+
+      <div class="hero__copy" data-sc-cue="0 0.62 0 0.3">
+        <h1 class="hero__lede">Cloudberry делает сайты для баров, где гости сами бронируют столы и&nbsp;приходят.</h1>
+        <a class="btn btn--primary" href="#zayavka">Хочу такой сайт</a>
+      </div>
+
+      <div class="hero__dim" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 2 · СИГНАЛ: scrub. The first ~third is authored silence. -->
+  <section class="signal" id="signal" data-sc-act="scrub" data-sc-span="1.75" data-sc-dwell="0.3" data-sc-drift="#0A0A10">
+    <div data-sc-stage>
+      <picture>
+        <source media="(max-width: 860px)" srcset="assets/signal-poster-m.webp">
+        <img class="sc-stage__poster" src="assets/signal-poster.webp" alt="">
+      </picture>
+      <video data-sc-scrub data-sc-src="assets/signal.mp4" data-sc-src-mobile="assets/signal-m.mp4" muted playsinline></video>
+      <div class="sc-scrim sc-scrim--trail" aria-hidden="true"></div>
+      <div class="signal__fade" aria-hidden="true"></div>
+
+      <div class="notif" data-sc-cue="0.34 1 0.12 0.1" role="img" aria-label="Уведомление Telegram от бота: новая бронь с сайта, джазовый вечер в пятницу в 20:00, стол 6, Анна, 2 гостя, гость подтвердил бронь">
+        <div class="notif__shake">
+          <div class="notif__top">
+            <span class="tg" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.7 4.3 3.4 11c-1.2.5-1.2 1.2-.2 1.5l4.4 1.4 1.7 5.2c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.1-2.1 4.5 3.3c.8.5 1.4.2 1.6-.8l2.9-13.7c.3-1.2-.4-1.7-1.4-1.3ZM8.7 13.6l9.6-6.1c.5-.3.9-.1.5.2l-8.2 7.4-.3 3.4-1.6-4.9Z"/></svg></span>
+            <span class="notif__app">Cloudberry Bot</span>
+            <span class="notif__time">сейчас</span>
+          </div>
+          <p class="notif__title">Новая бронь с сайта</p>
+          <p class="notif__line">Джазовый вечер · пт, 20:00</p>
+          <p class="notif__line">Стол 6 · Анна · 2 гостя</p>
+          <p class="notif__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>Гость подтвердил в Telegram</p>
+        </div>
+      </div>
+
+      <div class="sc-copy sc-copy--trail signal__copy" data-sc-cue="0.5 1 0.22 0.1">
+        <h2 class="sc-display sc-display--lg" data-sc-kinetic="lines">Бронь пришла сама.</h2>
+        <p class="sc-body">Без звонка. Гость выбрал стол на&nbsp;сайте и&nbsp;нажал «подтвердить».</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · «Я БРОНИРОВАЛА НА САЙТЕ»: flow + reveal -->
+  <section class="proof" id="proof" data-sc-act="pin" data-sc-span="1.8" data-sc-drift="#0B0A10">
+    <div data-sc-stage class="proof__stage">
+    <div class="proof__grid">
+      <figure class="proof__frame">
+        <img class="proof__img" src="assets/proof-admin.webp" width="1100" height="1457" alt="Администратор растерянно смотрит в телефон">
+        <div class="proof__reveal" data-sc-reveal="left" data-sc-reveal-at="0.36 0.56">
+          <img class="proof__img" src="assets/proof-guest.webp" width="1100" height="1457" alt="Гостья в дверях бара улыбается и показывает телефон с бронью">
+        </div>
+      </figure>
+
+      <div class="script">
+        <p class="eyebrow" data-sc-cue="0 1 0 0.08">Двадцать минут до начала</p>
+        <div class="script__beat" data-sc-cue="0 1 0 0.08">
+          <p class="script__who">Тимур, администратор</p>
+          <p class="script__line">«Какая ещё бронь с&nbsp;сайта?..»</p>
+        </div>
+        <p class="script__remark" data-sc-cue="0.2 1 0.1 0.08">Дверь открывается. Входит Анна.</p>
+        <div class="script__beat script__beat--guest" data-sc-cue="0.42 1 0.1 0.08">
+          <p class="script__who">Анна</p>
+          <p class="script__line">«Добрый вечер! Я бронировала на&nbsp;сайте, стол шесть.»</p>
+        </div>
+        <p class="script__remark" data-sc-cue="0.66 1 0.1 0.08">Показывает телефон. Проходит к&nbsp;своему столу.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 4 · ЛАВИНА: pan -->
+  <section class="rush" id="rush" data-sc-act="pan" data-sc-span="2.4" data-sc-drift="#0D0A0E">
+    <div data-sc-stage class="rush__stage">
+      <div class="rail" data-sc-pan="0.04">
+        <div class="rail__lead">
+          <h2 class="sc-display sc-display--lg">А&nbsp;потом ещё. И&nbsp;ещё.</h2>
+          <p class="sc-body">Компания друзей, пара, день рождения. Каждый пришёл со&nbsp;своей бронью в&nbsp;Telegram и&nbsp;прошёл к&nbsp;своему столу.</p>
+        </div>
+
+        <article class="guest" style="--i:1">
+          <div class="guest__photo" data-sc-tilt="6"><img src="assets/arrive-1.webp" width="900" height="1192" alt="Пятеро друзей входят в бар, смеются, у одного в руке телефон"></div>
+          <div class="ticket">
+            <p class="ticket__row"><span>Стол 9</span><span>5 гостей</span><span>20:00</span></p>
+            <h3 class="ticket__quote">«Мы с&nbsp;сайта»</h3>
+            <p class="ticket__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>подтверждено в Telegram</p>
+          </div>
+        </article>
+
+        <article class="guest" style="--i:2">
+          <div class="guest__photo" data-sc-tilt="6"><img src="assets/arrive-2.webp" width="900" height="1192" alt="Официант ведёт пару к столику, девушка оглядывается и улыбается"></div>
+          <div class="ticket">
+            <p class="ticket__row"><span>Стол 1</span><span>2 гостя</span><span>20:05</span></p>
+            <h3 class="ticket__quote">«Бронировали вчера»</h3>
+            <p class="ticket__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>подтверждено в Telegram</p>
+          </div>
+        </article>
+
+        <article class="guest" style="--i:3">
+          <div class="guest__photo" data-sc-tilt="6"><img src="assets/arrive-3.webp" width="900" height="1192" alt="Друзья празднуют день рождения за столом, официант приносит коктейли"></div>
+          <div class="ticket">
+            <p class="ticket__row"><span>Стол 11</span><span>6 гостей</span><span>20:10</span></p>
+            <h3 class="ticket__quote">«Нас шестеро»</h3>
+            <p class="ticket__ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5 6.5 12 13 4.5"/></svg>подтверждено в Telegram</p>
+          </div>
+        </article>
+
+        <div class="rail__note">
+          <p class="rail__clock">20:00.</p>
+          <p class="sc-lede">Двери открыты.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · ПОЛНЫЙ ЗАЛ (PEAK): scrub + iris from the empty room -->
+  <section class="peak" id="peak" data-sc-act="scrub" data-sc-span="3.1" data-sc-dwell="0.32" data-sc-drift="#140C08">
+    <div data-sc-stage class="peak__stage">
+      <picture>
+        <source media="(max-width: 860px)" srcset="assets/peak-empty-m.webp">
+        <img class="peak__empty" src="assets/peak-empty.webp" width="2400" height="1333" alt="">
+      </picture>
+      <div class="peak__full" data-sc-reveal="iris" data-sc-reveal-at="0.03 0.3">
+        <picture>
+          <source media="(max-width: 860px)" srcset="assets/peak-poster-m.webp">
+          <img class="sc-stage__poster" src="assets/peak-poster.webp" alt="Полный бар на джазовом вечере: гости за всеми столами, музыканты на сцене, администратор направляет официантов">
+        </picture>
+        <video data-sc-scrub data-sc-src="assets/peak.mp4" data-sc-src-mobile="assets/peak-m.mp4" muted playsinline></video>
+      </div>
+      <div class="peak__top" aria-hidden="true"></div>
+      <div class="sc-scrim sc-scrim--band" aria-hidden="true"></div>
+
+      <div class="sc-copy peak__copy">
+        <h2 class="sc-display peak__title" data-sc-cue="0.3 1 0.18 0.04" data-sc-kinetic="lines">Полный зал.</h2>
+        <p class="sc-lede" data-sc-cue="0.44 1 0.2 0.05">Тимур больше не&nbsp;обзванивает. Он рассаживает гостей и&nbsp;гоняет официантов.</p>
+      </div>
+      <div class="peak__dim" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 6 · ПОЧЕМУ ПРИХОДЯТ: pin + a route that draws itself -->
+  <section class="why" id="why" data-sc-act="pin" data-sc-span="1.8" data-sc-drift="#0C0B10">
+    <div data-sc-stage class="why__stage">
+      <div class="why__head" data-sc-cue="0 1 0 0.1">
+        <h2 class="sc-display sc-display--lg">Почему они приходят</h2>
+        <p class="sc-body">Гость сам выбрал вечер, сам выбрал стол и&nbsp;сам нажал «подтверждаю» в&nbsp;Telegram. Это уже не&nbsp;«может, зайдём», а&nbsp;обещание, которое он дал себе.</p>
+      </div>
+
+      <div class="route">
+      <svg class="route__line" viewBox="0 0 10 100" preserveAspectRatio="none" aria-hidden="true">
+        <path class="route__track" d="M5 2 V98"/>
+        <path class="route__ink" d="M5 2 V98" pathLength="1"/>
+      </svg>
+      <ol class="route__list">
+        <li class="route__step" data-sc-cue="0.04 1 0.08 0.06">
+          <h3>Афиша недели</h3>
+          <p>Гость открывает сайт заведения и&nbsp;видит все мероприятия на&nbsp;этой неделе.</p>
+        </li>
+        <li class="route__step" data-sc-cue="0.2 1 0.08 0.06">
+          <h3>Вечер и&nbsp;стол</h3>
+          <p>Выбирает ивент и&nbsp;свободный стол прямо на&nbsp;схеме зала.</p>
+        </li>
+        <li class="route__step" data-sc-cue="0.36 1 0.08 0.06">
+          <h3>Подтверждение в&nbsp;Telegram</h3>
+          <p>Бот присылает бронь, гость нажимает «подтверждаю».</p>
+        </li>
+        <li class="route__step" data-sc-cue="0.52 1 0.08 0.06">
+          <h3>Бронь у&nbsp;администратора</h3>
+          <p>Уведомление приходит на&nbsp;рабочий телефон. Обзванивать никого не&nbsp;нужно.</p>
+        </li>
+        <li class="route__step route__step--last" data-sc-cue="0.68 1 0.08 0.06">
+          <h3>Гость пришёл</h3>
+          <p>И&nbsp;знает, какой стол его ждёт.</p>
+        </li>
+      </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · ТЕПЕРЬ ВЫ: the surface, running -->
+  <section class="demo" id="demo" data-sc-act="flow" data-sc-drift="#0C0B10">
+    <div class="demo__sheet">
+      <div class="demo__intro" data-sc-in data-sc-stagger="70">
+        <p class="eyebrow">Живое демо</p>
+        <h2 class="sc-display sc-display--lg">Теперь вы гость.</h2>
+        <p class="sc-body">Так работает сайт, который мы делаем заведениям. Выберите вечер и&nbsp;стол, подтвердите бронь в&nbsp;телефоне справа. Данные условные, ничего никуда не&nbsp;отправляется.</p>
+      </div>
+
+      <div class="demo__grid">
+        <div class="demo__main">
+          <fieldset class="events">
+            <legend class="events__legend">Афиша этой недели</legend>
+            <div class="events__list" data-events></div>
+          </fieldset>
+
+          <div class="demo__work">
+          <div class="floor" aria-label="Схема зала">
+            <div class="floor__room" data-plan="demo"></div>
+            <p class="floor__legend">
+              <span><i class="lg lg--free"></i>свободен</span>
+              <span><i class="lg lg--taken"></i>занят</span>
+              <span><i class="lg lg--pick"></i>ваш выбор</span>
+            </p>
+          </div>
+
+          <form class="book" data-book novalidate>
+            <p class="book__pick" data-pick aria-live="polite">Выберите свободный стол на&nbsp;схеме</p>
+            <div class="book__fields">
+              <label class="field">
+                <span class="field__label">Имя</span>
+                <input class="field__input" name="guest" autocomplete="given-name" placeholder="Как к вам обращаться" required maxlength="40">
+              </label>
+              <label class="field field--small">
+                <span class="field__label">Гостей</span>
+                <select class="field__input" name="seats" data-seats></select>
+              </label>
+            </div>
+            <button class="btn btn--primary book__go" type="submit" disabled>Забронировать стол</button>
+          </form>
+          </div>
+        </div>
+
+        <div class="phone" aria-label="Демо: чат с ботом бронирования в Telegram">
+          <div class="phone__notch" aria-hidden="true"></div>
+          <div class="phone__bar">
+            <span class="phone__ava" aria-hidden="true"><svg class="berry" viewBox="0 0 40 40"><circle cx="15" cy="14" r="5.2"/><circle cx="25" cy="14" r="5.2"/><circle cx="10" cy="23.5" r="4.6"/><circle cx="20" cy="23" r="5.4"/><circle cx="30" cy="23.5" r="4.6"/><circle cx="15" cy="31.5" r="4.2"/><circle cx="25" cy="31.5" r="4.2"/></svg></span>
+            <span class="phone__name">Бар «Джаз-подвал»<small>бот бронирования</small></span>
+          </div>
+          <div class="chat" data-chat aria-live="polite"></div>
+          <p class="phone__admin" data-admin aria-live="polite"></p>
+        </div>
+      </div>
+      <noscript><p class="sc-body">Демо работает с включённым JavaScript.</p></noscript>
+    </div>
+  </section>
+
+  <!-- 8 · ВАШ СТОЛ: the close resolves and holds -->
+  <section class="close" id="zayavka" data-sc-act="flow" data-sc-drift="#0A0B10">
+    <div class="close__grid">
+      <div class="close__lead" data-sc-in data-sc-stagger="80">
+        <h2 class="sc-display sc-display--lg">Последний свободный стол.</h2>
+        <p class="sc-body">Сделаем такой сайт вашему заведению: афиша недели, схема зала, бронь в&nbsp;два касания и&nbsp;подтверждение в&nbsp;Telegram. Оставьте контакт, напишем вам в&nbsp;WhatsApp.</p>
+        <figure class="close__plan">
+          <div data-plan="close" aria-hidden="true"></div>
+          <figcaption><i class="lg lg--yours" aria-hidden="true"></i>Стол 12 свободен. Он для вашего заведения.</figcaption>
+        </figure>
+      </div>
+
+      <form class="lead" data-lead method="post" action="#" novalidate>
+        <p class="lead__stamp"><span>Бронь</span><span>Cloudberry</span></p>
+        <label class="field">
+          <span class="field__label">Имя</span>
+          <input class="field__input" name="name" autocomplete="name" required maxlength="60" placeholder="Тимур">
+          <span class="field__err" data-err="name"></span>
+        </label>
+        <label class="field">
+          <span class="field__label">Заведение</span>
+          <input class="field__input" name="venue" autocomplete="organization" required maxlength="80" placeholder="Бар «Джаз-подвал», Казань">
+          <span class="field__err" data-err="venue"></span>
+        </label>
+        <label class="field">
+          <span class="field__label">Номер WhatsApp</span>
+          <input class="field__input" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="+7 900 000-00-00">
+          <span class="field__err" data-err="whatsapp"></span>
+        </label>
+        <button class="btn btn--primary lead__go" type="submit">Хочу такой сайт</button>
+        <p class="lead__fine">Нажимая кнопку, вы соглашаетесь, что мы свяжемся с&nbsp;вами по&nbsp;этому номеру.</p>
+        <p class="lead__status" data-status role="status"></p>
+      </form>
+    </div>
+
+    <footer class="foot">
+      <span class="foot__mark"><svg class="berry" viewBox="0 0 40 40" aria-hidden="true"><circle cx="15" cy="14" r="5.2"/><circle cx="25" cy="14" r="5.2"/><circle cx="10" cy="23.5" r="4.6"/><circle cx="20" cy="23" r="5.4"/><circle cx="30" cy="23.5" r="4.6"/><circle cx="15" cy="31.5" r="4.2"/><circle cx="25" cy="31.5" r="4.2"/></svg>Cloudberry</span>
+      <span>Сайты с&nbsp;бронированием для баров, пабов и&nbsp;ивент-площадок</span>
+      <span>© 2026</span>
+    </footer>
+  </section>
+
+</main>
+
+<script src="scrollcraft.js"></script>
+<script src="site.js"></script>
+</body>
+</html>

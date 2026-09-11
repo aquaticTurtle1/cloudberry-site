@@ -1,0 +1,19 @@
+# зависимости
+node_modules/
+
+# скриншоты самопроверки (гигабайты, пересоздаются командой из CLAUDE.md)
+temporary screenshots/
+
+# исходники генерации ассетов: мастера kie.ai и промежуточные файлы
+scrollcraft/builds/*/out/
+
+# рабочие листы проверки (сами скрипты .mjs остаются в репозитории)
+scrollcraft/builds/*/lab/*
+!scrollcraft/builds/*/lab/
+!scrollcraft/builds/*/lab/*.mjs
+
+# ключи и локальное
+.env
+.env.*
+.DS_Store
+Thumbs.db
